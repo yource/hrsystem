@@ -11,20 +11,22 @@ const router = createRouter({
     {
       path: '/',
       redirect: '/login'
-    },{
+    }, {
       path: '/login',
       name: 'login',
       component: Login
-    },{
+    }, {
       path: '/main',
       name: 'main',
       component: Main,
       redirect: '/main/home',
       children: [{
         path: "home",
+        name: "home",
         component: Home
-      },{
+      }, {
         path: "account",
+        name: "account",
         component: Account
       }]
     }
@@ -32,9 +34,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  if(to.name!="login"){
+  if (to.name != "login") {
     const userinfo = useUserinfoStore();
-    if(!userinfo.id){
+    if (!userinfo.logined) {
       return '/login'
     }
   }

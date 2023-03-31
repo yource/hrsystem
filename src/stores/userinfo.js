@@ -1,13 +1,21 @@
 import { defineStore } from 'pinia'
 
-const defaultState = {
-  id:"",
-  name:""
+var defaultStore = {
+  id: "",
+  name: ""
 }
 
 export const useUserinfoStore = defineStore('userinfo', {
-  state: () => (JSON.parse(JSON.stringify(defaultState))),
-  getters: {},
-  actions: {},
+  state: () => (JSON.parse(JSON.stringify(defaultStore))),
+  getters: {
+    logined: (state) => !!state.id
+  },
+  actions: {
+    clear() {
+      this.$patch(JSON.parse(JSON.stringify(defaultStore)))
+    }
+  },
+  persist: {
+    storage: sessionStorage,
+  },
 })
-
