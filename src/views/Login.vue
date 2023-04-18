@@ -4,13 +4,15 @@
             <div class="title">Login 登陆</div>
             <div class="row">
                 <div class="label">用户名：</div>
-                <input type="text" v-model="username">
+                <el-input v-model="username" size="large" placeholder="Please Input" clearable/>
             </div>
             <div class="row">
                 <div class="label">密码：</div>
-                <input type="password" v-model="password">
+                <el-input v-model="password" size="large" placeholder="Please Input" type="password" show-password/>
             </div>
-            <el-button type="primary" @click="login">登陆</el-button>
+            <div class="btnCon">
+                <el-button type="primary" @click="login" >登陆</el-button>
+            </div>
         </div>
     </div>
 </template>
@@ -70,3 +72,49 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.loginPage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    .loginCon{
+        width: 420px;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        .title{
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .row{
+            padding-top: 12px;
+            .label{
+                font-size: 16px;
+                line-height: 32px;
+            }
+        }
+        .btnCon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            button{
+                width: 200px;
+                height: 40px;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 2px;
+            }
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .loginCon{
+            width: 300px;
+        }
+    }
+}
+</style>
