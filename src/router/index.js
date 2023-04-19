@@ -5,7 +5,7 @@ import Home from '../views/Home.vue'
 import Demo from '../views/Demo.vue'
 import { useUserinfoStore } from '../stores/userinfo'
 
-export const mainRoutes = [{
+const mainRoutes = [{
 	path: "home",
 	name: "home",
 	component: Home,

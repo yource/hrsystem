@@ -111,7 +111,7 @@ export default {
             }
         }
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 768px) {
         .loginCon{
             width: 300px;
         }
